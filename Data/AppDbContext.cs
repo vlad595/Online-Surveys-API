@@ -20,7 +20,7 @@ namespace SurveySystem.Data
             base.OnModelCreating(builder);
 
             builder.Entity<Survey>().HasOne(s => s.Author).WithMany(u => u.CreatedSurveys).HasForeignKey(s => s.AuthorId).OnDelete(DeleteBehavior.SetNull);
-
+ 
             builder.Entity<Response>().HasOne(r => r.Respondent).WithMany(u => u.SurveyResponses).HasForeignKey(r => r.RespondentId).OnDelete(DeleteBehavior.SetNull);
 
             builder.Entity<Answer>().HasOne(a => a.Question).WithMany(q => q.Answers).HasForeignKey(a => a.QuestionId).OnDelete(DeleteBehavior.NoAction);
