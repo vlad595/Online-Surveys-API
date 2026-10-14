@@ -1,31 +1,13 @@
-using System;
+using Microsoft.AspNetCore.Identity;
 
-namespace Mdoels
+namespace Models
 {
-    using BCrypt.Net;
-    class User
+    public class ApplicationUser : IdentityUser
     {
-        string Username {get;set;} = string.Empty;
-        string Email {get;set;} = string.Empty;
-        UserRoles Role {get;set;}
-        string PasswordHash {get;set;} = string.Empty;
-        string HashPassword(string password)
-        {
-            string hashedPassword = string.Empty;
+        public string FullName { get; set; } = string.Empty;
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
-            hashedPassword = BCrypt.HashPassword(password);
-
-            return hashedPassword;
-        }
-        bool VerifyPassword(string password)
-        {
-            return BCrypt.Verify(password, this.PasswordHash);
-        }
-    }
-    enum UserRoles
-    {
-        Respondent,
-        Author,
-        Admin
+        public ICollection<Survey> CreatedSurveys { get; set; } = new List<Survey>();
+        public ICollection<Response> SurveyResponses { get; set; } = new List<Response>();
     }
 }
