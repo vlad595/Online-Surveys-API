@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Models;
 
-namespace SurveySystem.Data
+namespace Data
 {
     public class AppDbContext : IdentityDbContext<ApplicationUser>
     {

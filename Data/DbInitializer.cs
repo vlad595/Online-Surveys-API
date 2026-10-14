@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Models;
 
-namespace SurveySystem.Data
+namespace Data
 {
     public static class DbInitializer
     {
